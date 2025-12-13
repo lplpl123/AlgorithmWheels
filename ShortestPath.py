@@ -10,7 +10,7 @@ import copy
 
 def InsertSort(nums: list) -> list:
     M = copy.deepcopy(nums)
-    M[0][0] = [[0]]
+    M[0][0] = [[nums[0][0]]]
 
     for i, line in enumerate(M):
         for j, one in enumerate(line):
@@ -39,8 +39,13 @@ def InsertSort(nums: list) -> list:
             print(M)
             print("------over------")
 
+    paths = M[-1][-1]
+    sums = []
+    for path in paths:
+        sums.append(sum(path))
 
-    return 0
+
+    return min(sums)
 
 
 l = [[0, 6, 2],
